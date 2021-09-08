@@ -1,9 +1,9 @@
 package main;
 
-import utils.Input;
-import utils.Timer;
 import org.lwjgl.glfw.GLFW;
 import org.lwjgl.opengl.GL46;
+import utils.Input;
+import utils.Timer;
 
 public class Main {
 

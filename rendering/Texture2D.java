@@ -10,7 +10,7 @@ import java.nio.ByteBuffer;
 import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
 
-public class Texture {
+public class Texture2D {
 
     private final int width;
     private final int height;
@@ -20,7 +20,7 @@ public class Texture {
 
     private final int id;
 
-    public Texture(String path) throws Exception {
+    public Texture2D(String path) throws Exception {
         int[] array=loadTexture(path);
         this.id=array[0];
         width=array[1];
@@ -29,7 +29,7 @@ public class Texture {
         this.format=GL46.GL_RGBA;
     }
 
-    public Texture(int width, int height, int internalFormat, int pixelFormat, int dataType){
+    public Texture2D(int width, int height, int internalFormat, int pixelFormat, int dataType){
         this.id= GL46.glGenTextures();
         this.width=width;
         this.height=height;
