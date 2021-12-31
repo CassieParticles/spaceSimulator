@@ -8,11 +8,11 @@ import java.nio.IntBuffer;
 
 public class Mesh {
 
-    private int vaoId;
-    private int vertexVboId;
-    private int indexVboId;
+    protected int vaoId;
+    protected int vertexVboId;
+    protected int indexVboId;
 
-    private int vertexCount;
+    protected int vertexCount;
 
     public Mesh(float[] vertices, int[] indices){
         vertexCount=indices.length;
@@ -49,7 +49,7 @@ public class Mesh {
     }
 
 
-    public void render(rendering.Program program){
+    public void render(Program program, Camera camera){
         program.useProgram();
 
         GL46.glBindVertexArray(getVaoId());
@@ -62,7 +62,7 @@ public class Mesh {
 
         GL46.glBindVertexArray(0);
 
-        program.detachProgram();
+        program.unlinkProgram();
     }
 
 

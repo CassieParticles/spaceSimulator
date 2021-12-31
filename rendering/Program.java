@@ -1,17 +1,13 @@
 package rendering;
 
+import org.joml.*;
+import org.lwjgl.opengl.GL46;
+import org.lwjgl.system.MemoryStack;
+
 import java.nio.FloatBuffer;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-
-import org.joml.Matrix4f;
-import org.joml.Vector2f;
-import org.joml.Vector2i;
-import org.joml.Vector3f;
-import org.joml.Vector3i;
-import org.lwjgl.opengl.GL46;
-import org.lwjgl.system.MemoryStack;
 
 public class Program {
     private int programId;
@@ -68,7 +64,7 @@ public class Program {
         GL46.glUseProgram(programId);
     }
 
-    public void detachProgram(){
+    public void unlinkProgram(){
         GL46.glUseProgram(0);
     }
 

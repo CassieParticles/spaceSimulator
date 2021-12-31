@@ -75,6 +75,8 @@ public class Window {
         GL.createCapabilities();
 
         GL46.glEnable(GL46.GL_DEPTH_TEST);
+        GL46.glEnable(GL_BLEND);
+        GL46.glBlendFunc(GL46.GL_SRC_ALPHA, GL46.GL_ONE_MINUS_SRC_ALPHA);
 
         // Set the clear color
         glClearColor(0.1f, 0.1f, 0.2f, 1.0f);
