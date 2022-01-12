@@ -112,6 +112,8 @@ public class Program {
     public void setUniform(String uniformName, Vector2f vector){
         if(hasUniform(uniformName)){
             GL46.glUniform2f(uniforms.get(uniformName),vector.x,vector.y);
+        }else{
+            System.out.println("Uniform "+ uniformName + " does not exist");
         }
     }
 

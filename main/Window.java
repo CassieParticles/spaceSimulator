@@ -1,14 +1,16 @@
 package main;
 
+import org.joml.Vector2f;
 import org.lwjgl.glfw.GLFWErrorCallback;
 import org.lwjgl.opengl.GL;
 import org.lwjgl.opengl.GL46;
 
 import java.awt.*;
 
-import static org.lwjgl.glfw.Callbacks.*;
+import static org.lwjgl.glfw.Callbacks.glfwFreeCallbacks;
 import static org.lwjgl.glfw.GLFW.*;
-import static org.lwjgl.opengl.GL11.*;
+import static org.lwjgl.opengl.GL11.GL_BLEND;
+import static org.lwjgl.opengl.GL11.glClearColor;
 import static org.lwjgl.system.MemoryUtil.NULL;
 
 public class Window {
@@ -126,6 +128,10 @@ public class Window {
 
     public int getHeight(){
         return height;
+    }
+
+    public Vector2f getResolution(){
+        return new Vector2f(width,height);
     }
 
     public float getAspectRatio(){

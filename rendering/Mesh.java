@@ -1,5 +1,6 @@
 package rendering;
 
+import gameObjects.Camera;
 import org.lwjgl.opengl.GL46;
 import org.lwjgl.system.MemoryUtil;
 
