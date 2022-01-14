@@ -22,8 +22,7 @@ public class Physics {
     private void applyGravity(Planet planetA, Planet planetB, float gravityConstant){   //Calculates and applies the force of gravity between 2 planets
         Vector2f dVec=planetB.getPosition().sub(planetA.getPosition());
         float forceScalar=(planetA.getMass()*planetB.getMass()*gravityConstant)/(square(dVec.x)+square(dVec.y));   // Force=(MassA * MassB * Gravity constant)/dist^2
-        dVec.normalize();
-        dVec.mul(forceScalar);  //Converts the force into a vector
+        dVec.normalize().mul(forceScalar);  //Converts the force into a vector
 
         planetA.addForce(dVec);
         planetB.addForce(dVec.mul(-1));

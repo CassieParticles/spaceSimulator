@@ -73,7 +73,7 @@ public class Main {
 
         ArrayList<Planet> planets=new ArrayList<>();
 
-        planets.add(new Planet(new Vector2f(0.7f,-0.5f),new Vector2f(0,-4),0.08f,1,new Vector3f(0,1,0)));
+        planets.add(new Planet(new Vector2f(0.7f,-0.5f),new Vector2f(0,4),0.08f,0.1f,new Vector3f(0,1,0)));
         planets.add(new Planet(new Vector2f(-0.5f,-0.5f),new Vector2f(0,0f),0.2f,200,new Vector3f(1,0,0)));
 
         simRunning.init(planets, 0.1f);
