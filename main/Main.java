@@ -1,11 +1,13 @@
 package main;
 
+import gameObjects.Camera;
 import gameObjects.Planet;
+import guiObjects.GUI;
+import guiObjects.TextGUI;
 import org.joml.Vector2f;
 import org.joml.Vector3f;
 import org.lwjgl.glfw.GLFW;
 import org.lwjgl.opengl.GL46;
-import gameObjects.Camera;
 import rendering.Program;
 import rendering.Shader;
 import sections.RunningSimulator.RunSimMain;
@@ -72,17 +74,22 @@ public class Main {
         program.createUniform("colour");
 
         ArrayList<Planet> planets=new ArrayList<>();
+        ArrayList<GUI> gui=new ArrayList<>();
 
-        planets.add(new Planet(new Vector2f(0.7f,-0.5f),new Vector2f(0,4),0.08f,0.1f,new Vector3f(0,1,0)));
-        planets.add(new Planet(new Vector2f(-0.5f,-0.5f),new Vector2f(0,0f),0.2f,200,new Vector3f(1,0,0)));
+        gui.add(new TextGUI(new Vector2f(),new Vector2f(1,1),"Amougus",15,150,"src/resources/slabo.png","src/resources/slaboData.csv"));
 
-        simRunning.init(planets, 0.1f);
+        planets.add(new Planet(new Vector2f(2f,-0.5f),new Vector2f(0,0.1f),0.08f,0.5f,new Vector3f(0,1,0)));
+        planets.add(new Planet(new Vector2f(-0.5f,-0.5f),new Vector2f(0,0f),0.2f,50,new Vector3f(1,0,0)));
+
+        simRunning.init(planets,gui, 0.1f,timer);
 
         camera=new Camera(0.01f,20,0.1f);
 
         GL46.glClearColor(0.1f, 0.1f, 0.2f, 1.0f);
         window.loop();
     }
+
+
 
     private void render() throws Exception {
         window.loop();
@@ -94,7 +101,7 @@ public class Main {
         if(input.isKeyDown(GLFW.GLFW_KEY_ESCAPE)){
             window.close();
         }
-        simRunning.update((float) timer.getDeltaUpdate(),camera, input);
+        simRunning.update((float) timer.getDeltaUpdate(),camera, input,window.getResolution());
         input.updateInputs();
     }
 

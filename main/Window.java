@@ -28,7 +28,7 @@ public class Window {
     public Window(int width, int height, String title){
         Dimension size=Toolkit.getDefaultToolkit().getScreenSize();
         this.width=Math.min(width,(int)size.getWidth());
-        this.height=Math.min(height, (int)size.getHeight()-32);
+        this.height=Math.min(height, (int)size.getHeight());
         if(width==-1){
             this.width=(int)size.getWidth();
         }if(height==-1){

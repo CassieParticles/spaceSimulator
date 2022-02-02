@@ -1,8 +1,8 @@
 package utils;
 
 public class Timer {
-    private final double updateTime;
-    private final double frameTime;
+    private double updateTime;
+    private double frameTime;
 
     private double lastFrame;
     private double lastUpdate;
@@ -19,6 +19,8 @@ public class Timer {
         lastTick=System.currentTimeMillis();
     }
 
+
+
     public void update(){
         long currentTime=System.currentTimeMillis();
         timeRunning+=(currentTime-lastTick)/1000.0;
@@ -33,6 +35,14 @@ public class Timer {
         if(update){
             lastUpdate=timeRunning;
         }
+    }
+
+    public void setUPS(float UPS){
+        updateTime=1/UPS;
+    }
+
+    public void setFPS(float FPS){
+        frameTime=1/FPS;
     }
 
     public boolean getFrame(){
