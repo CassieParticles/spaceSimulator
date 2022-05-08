@@ -5,7 +5,6 @@ import gameObjects.Planet;
 import guiObjects.TextureGUI;
 import org.joml.Vector2f;
 import org.joml.Vector2i;
-import org.joml.Vector3f;
 import org.lwjgl.glfw.GLFW;
 import org.lwjgl.opengl.GL46;
 import utils.Input;
@@ -62,17 +61,6 @@ public class Main {
         ArrayList<Planet> planets=new ArrayList<>();
 
         Random rand=ThreadLocalRandom.current();
-
-        int num=500;
-        for(int i=0;i<num;i++){
-            float mass=0.2f;
-            planets.add(new Planet(new Vector2f((float) (rand.nextFloat()*(Math.sqrt(num)+10)),(float) (rand.nextFloat()*(Math.sqrt(num)+10))),new Vector2f(0),mass,mass*10,new Vector3f(i/(float)num)));
-        }
-
-//        planets.add(new Planet(new Vector2f(15f,-0.5f),new Vector2f(0,0f),1f,1000f,new Vector3f(0,1,0)));
-////        planets.add(new Planet(new Vector2f(15.75f,-0.5f),new Vector2f(0,2f),0.04f,0.1f,new Vector3f(1,0,1)));
-//        planets.add(new Planet(new Vector2f(0,0),new Vector2f(0,0f),1f,1000,new Vector3f(1,0,0)));
-////        planets.add(new Planet(new Vector2f(14.392f,-0.4f),new Vector2f(0,2f),0.05f,0.00001f,new Vector3f(1,1,0)));
 
         PageManager.loadBuildSim(planets,0.1f);
 

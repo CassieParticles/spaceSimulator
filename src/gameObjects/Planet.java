@@ -101,8 +101,7 @@ public class Planet {
     }
     
     @Override
-    public Planet clone() throws CloneNotSupportedException {
-        Planet clone = (Planet) super.clone();
+    public Planet clone(){
         return new Planet(new Vector2f(position),new Vector2f(velocity),radius, mass,new Vector3f(colour));
     }
 }
