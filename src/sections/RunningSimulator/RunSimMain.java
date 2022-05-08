@@ -87,7 +87,7 @@ public class RunSimMain {
 
         timeStepBox.clearFontCharacters();
         
-        timeStepBox.initText(Float.toString(timeStep),5,"src/resources/slabo.png","src/resources/slaboData.csv","1234567890.");
+        timeStepBox.initText(Float.toString(timeStep),5,"resources/slabo.png","resources/slaboData.csv","1234567890.");
         ((TextGUI)GUIElements.get(11)).changeText(Float.toString(gravityConstant));
         ((TextGUI)GUIElements.get(11)).generateText();
 
