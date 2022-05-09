@@ -126,6 +126,7 @@ public class BuildSimMain {
             if(planetSelected!=null){
                 removePlanet(planetSelected);
                 planetSelected=null;
+                planetPosX.clearFontCharacters();
             }
         });
 

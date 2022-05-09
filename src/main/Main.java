@@ -83,9 +83,9 @@ public class Main {
         window.loop();
         GL46.glClear(GL46.GL_COLOR_BUFFER_BIT | GL46.GL_DEPTH_BUFFER_BIT); //Clears the frame so the last rendered frame doesn't remain on the screen
         background.render(window.getResolution());
+        PageManager.render();
         quitButton.render(window.getResolution());
         quitText.render(window.getResolution());
-        PageManager.render();
     }
 
     private void update() throws Exception {
