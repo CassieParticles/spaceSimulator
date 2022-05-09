@@ -142,10 +142,23 @@ public class BuildSimMain {
         init(new ArrayList<>(),GUIElements,gravityConstant, camera);
     }
 
+    private Vector3f genRandColour(){   //Generates a random colour, preventing random planets being too dark
+        int i=0;
+        Random rand= ThreadLocalRandom.current();
+        float[] vals=new float[3];
+        do{
+            vals[i]=rand.nextFloat();
+            if(vals[i]>0.3f){   //Doesn't move on until number is above 0.3
+                i++;
+            }
+        }while(i<3);
+        return new Vector3f(vals);
+    }
+
     public Planet addPlanet(Vector2f position){
         //Random new planets will have a random colour, so even if the user doesn't want to decide colours, they are still different
         Random rand= ThreadLocalRandom.current();
-        Planet planet=new Planet(new Vector2f(position),new Vector2f(),1f,1,new Vector3f(rand.nextFloat(),rand.nextFloat(),rand.nextFloat()));
+        Planet planet=new Planet(new Vector2f(position),new Vector2f(),1f,1,genRandColour());
         planets.add(planet);
         return planet;
     }
@@ -278,7 +291,18 @@ public class BuildSimMain {
         updateGUI();
     }
 
+    private float power(float number, int power){   //Raises a number to an integer power
+        float num=1;
+        for(int i=0;i<power;i++){
+            num*=number;
+        }
+        return num;
+    }
 
+    private float round(float number,int dp){   //Rounds a number to a number of decimal places
+        int s=(int)power(10,dp);
+        return (float)Math.floor(number*s)/s;
+    }
 
     public void update(float updateRate, Camera camera, Input input, Vector2f resolution) throws Exception {
         updateInputGUI(resolution);
@@ -326,7 +350,8 @@ public class BuildSimMain {
             GUISelectedLF=null;
         }
         if(!simGravConst.getSelected()){
-            gravityConstant=validateText(simGravConst.toString(),false);
+
+            gravityConstant=round(validateText(simGravConst.toString(),false),3);
             simGravConst.setText(Float.toString(gravityConstant));
         }
 
@@ -364,6 +389,10 @@ public class BuildSimMain {
                 case 15:
                 case 20:
                 case 21:
+                case 24:
+                case 25:
+                case 26:
+                case 27:
                     if(planetSelected!=null){
                         GUIElements.get(i).render(screenSize);
                     }

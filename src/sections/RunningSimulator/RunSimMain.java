@@ -244,6 +244,7 @@ public class RunSimMain {
                 case 19:
                 case 23:
                 case 24:
+                case 25:
                     GUIElements.get(i).render(resolution);
                     break;
                 case 2:

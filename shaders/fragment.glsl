@@ -3,7 +3,7 @@
 in vec2 centre;
 in float fragRadius;
 
-uniform vec3 colour;
+uniform vec3 colour;    //du
 uniform vec2 resolution;
 
 out vec4 FragColour;
